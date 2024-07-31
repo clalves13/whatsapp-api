@@ -44,7 +44,9 @@ const startSession = async (req, res) => {
     */
     // wait until the client is created
     waitForNestedObject(setupSessionReturn.client, 'pupPage')
-      .then(res.json({ success: true, message: setupSessionReturn.message }))
+      .then(
+        res.json({ success: true, message: setupSessionReturn.message })
+      )
       .catch((err) => { sendErrorResponse(res, 500, err.message) })
   } catch (error) {
   /* #swagger.responses[500] = {
@@ -172,7 +174,7 @@ const sessionQrCodeImage = async (req, res) => {
         }
       */
       res.writeHead(200, {
-        'Content-Type': 'image/png'
+        'Content-Type': 'image/png',
       })
       return qrImage.pipe(res)
     }
