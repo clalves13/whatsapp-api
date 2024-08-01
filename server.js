@@ -4,8 +4,8 @@ const fs = require('fs');
 const { baseWebhookURL } = require('./src/config');
 require('dotenv').config();
 
-const privateKey = fs.readFileSync('./certificados/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('./certificados/cert.pem', 'utf8');
+const privateKey = fs.readFileSync('./certificados/private.key', 'utf8');
+const certificate = fs.readFileSync('./certificados/certificate.pem', 'utf8');
 const credentials = { key: privateKey, cert: certificate };
 
 // Start the server
@@ -21,5 +21,5 @@ const httpsServer = https.createServer(credentials, app);
 
 httpsServer.listen(port, () => {
   console.log(`Server running on port ${port}`);
-  console.log('https://sitedotheg.site/api-docs/');
-})
+  console.log('https://sitedotheg.site:4343/api-docs/');
+});
