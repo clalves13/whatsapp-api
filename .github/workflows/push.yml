@@ -40,8 +40,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: '${{ secrets.clalves13 }}'
-          password: '${{ secrets.prosolutions }}'
+          username: '${{ clalves13 }}'
+          password: '${{ prosolutions }}'
       - name: Actual tag from fetch-tag job
         run: |
           echo "Tag from fetch-tag job: ${{ steps.fetch-wwebjs-tag.outputs.tag }}"
